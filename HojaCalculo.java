@@ -5,7 +5,7 @@
  *  En cada fila la empresa "apunta" los ingresos y gastos en 
  *  una determinada fecha
  * 
- * @author - Andrés Guallar  
+ * @author - Andrés Guallar Chamorro
  *  
  */
 public class HojaCalculo

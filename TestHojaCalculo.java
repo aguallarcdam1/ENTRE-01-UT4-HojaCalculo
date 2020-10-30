@@ -2,7 +2,7 @@
 /**
  *  Clase con código para probar el resto de clases
  * 
- * @author - 
+ * @author - Andrés Guallar Chamorro
  *  
  */
 public class TestHojaCalculo
