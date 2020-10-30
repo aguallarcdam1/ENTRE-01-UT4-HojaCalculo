@@ -161,8 +161,16 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getTotalGastos() {
-        double totalGastos = fila1.getGastos() + fila2.getGastos() + fila3.getGastos();
-        return totalGastos;
+        double totalGastos = 0;
+        if(fila2 == null){
+            return totalGastos = fila1.getGastos();
+        }
+        else if (fila3 == null){
+            return totalGastos = fila1.getGastos() + fila2.getGastos();
+        }
+        else {
+            return totalGastos = fila1.getGastos() + fila2.getGastos() + fila3.getGastos();
+        }
 
     }
 
@@ -171,8 +179,16 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getBeneficio() {
-        double totalBeneficio = fila1.getBeneficio() + fila2.getBeneficio() + fila3.getBeneficio();
-        return totalBeneficio;
+        double totalBeneficio = 0;
+        if(fila2 == null){
+            return totalBeneficio = fila1.getBeneficio();
+        }
+        else if (fila3 == null){
+            return totalBeneficio = fila1.getBeneficio() + fila2.getBeneficio();
+        }
+        else {
+            return totalBeneficio = fila1.getBeneficio() + fila2.getBeneficio() + fila3.getBeneficio();
+        }
 
     }
 
