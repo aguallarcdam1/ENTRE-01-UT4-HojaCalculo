@@ -152,7 +152,6 @@ public class HojaCalculo
         else {
             return totalIngresos = fila1.getIngresos() + fila2.getIngresos() + fila3.getIngresos();
         }
-        
 
     }
 
@@ -197,8 +196,31 @@ public class HojaCalculo
      * con el formato exacto que indica el enunciado
      */
     public String toString() {
+        //Declaro variables locales para poder utilizar el String.format
+        String FECHA = "";
+        String INGRESOS = "";
+        String GASTOS = "";
+        String BENEFICIO = "";
+        double ingresoT = getTotalIngresos();
+        double gastoT = getTotalGastos();
+        double beneficio = getBeneficio();
+        
+        String repreHoja = "";
+        repreHoja = this.nombre + "\n";
+        repreHoja += String.format("%18sFECHA %15sINGRESOS %15sGASTOS %15sBENEFICIO", FECHA, INGRESOS, GASTOS, BENEFICIO, "\n");
+        if(fila2 == null){
+            repreHoja += fila1.toString() + "\n";
+        }
+        else if(fila3 == null){
+            repreHoja += fila1.toString() + fila2.toString() + "\n";
+        }
+        else{
+            repreHoja += fila1.toString() + fila2.toString() + fila3.toString() + "\n";
+        }
+        repreHoja += "-----------------------------------------------------------------------\n";
+        repreHoja += String.format("%18.2f€ %15.2f€ %15.2f€", ingresoT, gastoT, beneficio);
 
-        return null;
+        return repreHoja;
 
     }
 

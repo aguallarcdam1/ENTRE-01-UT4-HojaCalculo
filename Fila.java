@@ -101,7 +101,7 @@ public class Fila
         lineaFormateada += String.format("%15.2f€",ingresos);
         lineaFormateada += String.format("%15.2f€",gastos);        
         if(beneficio < 0){
-            return lineaFormateada += String.format("%+15.2f€",beneficio);     
+            return lineaFormateada += String.format("%+15.2f€ **",beneficio);     
         }
         lineaFormateada += String.format("%15.2f€",beneficio);
         return lineaFormateada;
