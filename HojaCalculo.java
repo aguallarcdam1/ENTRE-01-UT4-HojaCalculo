@@ -66,8 +66,17 @@ public class HojaCalculo
      * (dependerá de cuántas filas estén a null)
      */
     public int getNumeroFilas() {
-        
-        return 0;
+        int numeroFilas = 0;
+        if (fila1 != null && fila2 != null && fila3 != null){
+            numeroFilas = 3;
+        }
+        else if ((fila1 != null && fila2 != null) || (fila1 != null && fila3 != null) || (fila2 != null && fila3 != null)) {
+            numeroFilas = 2;
+        }
+        else if (fila1 != null || fila2 != null || fila3 != null){
+            numeroFilas = 1;
+        }
+        return numeroFilas;
 
     }
 
@@ -76,7 +85,10 @@ public class HojaCalculo
      * (tiene exactamente 3 filas)
      */
     public boolean hojaCompleta() {
-        return true;
+        if (getNumeroFilas() == 3){
+            return true;
+        }
+        return false;
 
     }
 
