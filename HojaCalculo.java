@@ -230,8 +230,12 @@ public class HojaCalculo
      * Al duplicar la hoja se duplicarán también las filas que contenga
      */
     public HojaCalculo duplicarHoja() {
-
-        return null;
+        String nombreD = "Duplicada " + this.nombre;
+        HojaCalculo hojaD = new HojaCalculo(nombreD);
+        hojaD.addFila(fila1.duplicar());
+        hojaD.addFila(fila2.duplicar());
+        hojaD.addFila(fila3.duplicar());
+        return hojaD;
     }
 
 }
