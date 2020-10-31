@@ -204,21 +204,22 @@ public class HojaCalculo
         double ingresoT = getTotalIngresos();
         double gastoT = getTotalGastos();
         double beneficio = getBeneficio();
-        
+
         String repreHoja = "";
         repreHoja = this.nombre + "\n";
-        repreHoja += String.format("%18sFECHA %15sINGRESOS %15sGASTOS %15sBENEFICIO", FECHA, INGRESOS, GASTOS, BENEFICIO, "\n");
+        repreHoja += String.format("%18sFECHA %10sINGRESOS %4sGASTOS %6sBENEFICIO", FECHA, INGRESOS, GASTOS, BENEFICIO, "\n");
+        repreHoja += "\n";
         if(fila2 == null){
             repreHoja += fila1.toString() + "\n";
         }
         else if(fila3 == null){
-            repreHoja += fila1.toString() + fila2.toString() + "\n";
+            repreHoja += fila1.toString() + "\n" + fila2.toString();
         }
         else{
-            repreHoja += fila1.toString() + fila2.toString() + fila3.toString() + "\n";
+            repreHoja += fila1.toString() + "\n" + fila2.toString() + "\n" + fila3.toString();
         }
-        repreHoja += "-----------------------------------------------------------------------\n";
-        repreHoja += String.format("%18.2f€ %15.2f€ %15.2f€", ingresoT, gastoT, beneficio);
+        repreHoja += "\n" + "---------------------------------------------------------------------------";
+        repreHoja += "\n" + String.format("%38.2f€ %15.2f€ %15.2f€", ingresoT, gastoT, beneficio);
 
         return repreHoja;
 
@@ -232,9 +233,19 @@ public class HojaCalculo
     public HojaCalculo duplicarHoja() {
         String nombreD = "Duplicada " + this.nombre;
         HojaCalculo hojaD = new HojaCalculo(nombreD);
-        hojaD.addFila(fila1.duplicar());
-        hojaD.addFila(fila2.duplicar());
-        hojaD.addFila(fila3.duplicar());
+        if(fila2 == null){
+            hojaD.addFila(fila1.duplicar());
+        }
+        else if(fila3 == null){
+            hojaD.addFila(fila1.duplicar());
+            hojaD.addFila(fila2.duplicar());
+        }
+        else{
+            hojaD.addFila(fila1.duplicar());
+            hojaD.addFila(fila2.duplicar());
+            hojaD.addFila(fila3.duplicar());
+        }
+
         return hojaD;
     }
 
